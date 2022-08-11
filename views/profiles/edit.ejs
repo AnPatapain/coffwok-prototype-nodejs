@@ -1,0 +1,86 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheet/star.css">
+<link rel="stylesheet" href="/stylesheet/show.css">
+
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img src="<%= user.profile.images.thumbnail %> " class="card-img">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title">Edit Profile</h1>
+                <form action="/coffeeShops/<%=coffeeShop._id%>/profiles/<%= user._id %>?_method=PUT" method="post"
+                    novalidate class="needs-validation" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input class="form-control" type="text" name="profile[name]" id="name"
+                            value="<%= user.profile.name %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="age">Age</label>
+                        <input class="form-control" type="number" name="profile[age]" id="age"
+                            value="<%= user.profile.age %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="contact">Your Facebook link or Mail or Instagram</label>
+                        <input class="form-control" type="text" name="profile[contact]" id="contact"
+                            value="<%= user.profile.contact %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Choose images</label>
+                        <input class="form-control" type="file" id="image" name="image" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <p>
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTask" aria-expanded="false" aria-controls="collapseTask">
+                                Add your 4 daly task at <%= coffeeShop.title %>
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseTask">
+                            <div class="card card-body">
+                                <ul>
+                                    <% for(let dailyTask of dailyTasks) {%>
+                                    <div class="d-flex">
+                                        <li class="me-auto"><%= dailyTask %> </li>
+                                        <input type="checkbox" name="dailyTasks[]" value="<%= dailyTask %>">
+                                    </div>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" type="text" name="profile[description]" id="description"
+                            required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-success">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

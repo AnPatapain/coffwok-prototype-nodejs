@@ -1,0 +1,106 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheet/star.css">
+<link rel="stylesheet" href="/stylesheet/show.css">
+
+<div class="card mb-3">
+    <div class="row d-flex">
+        <div class="col-md-6">
+            <h1><%= coffeeShop.title %> </h1>
+            <img src="<%= coffeeShop.images %> " class="coffImg">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h1 class="card-title">Your Profile</h1>
+                <form action="/coffeeShops/<%=coffeeShop._id%>/profiles" method="post" novalidate
+                    class="needs-validation" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input class="form-control" type="text" name="profile[name]" id="name" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="age">Age</label>
+                        <input class="form-control" type="number" name="profile[age]" id="age" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="contact">Your Facebook link or Mail or Instagram</label>
+                        <input class="form-control" type="text" name="profile[contact]" id="contact" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Choose images</label>
+                        <input class="form-control" type="file" id="image" name="image" required>
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label class="form-label" for="image">Image url</label>
+                        <input class="form-control" type="text" name="profile[images]" id="image" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div> -->
+                    <!-- <div class="mb-3">
+                        <label for="image" class="form-label">Choose images</label>
+                        <input class="form-control" type="file" id="image" name="image" multiple>
+                    </div> -->
+
+                    <!-- <div class="mb-3">
+                        <label for="price" class="form-label">Campground Price</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                id="price" name="campground[price]" required placeholder="0.00">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="mb-3">
+                        <p>
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTask" aria-expanded="false" aria-controls="collapseTask">
+                                Add your 4 daly task at <%= coffeeShop.title %>
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseTask">
+                            <div class="card card-body">
+                                <ul>
+                                    <% for(let dailyTask of dailyTasks) {%>
+                                    <div class="d-flex">
+                                        <li class="me-auto"><%= dailyTask %> </li>
+                                        <input type="checkbox" name="dailyTasks[]" value="<%= dailyTask %>">
+                                    </div>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" type="text" name="profile[description]" id="description"
+                            required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-success">Upload profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

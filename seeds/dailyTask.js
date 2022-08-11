@@ -1,0 +1,21 @@
+module.exports.dailyTasks = [
+    'Finance',
+    'Working with data',
+    'Accounting',
+    'Reading',
+    'Do nothing',
+    'Programming',
+    'Content creator',
+    'Learn skills',
+    'English',
+    'French',
+    'Other Languages',
+    'Basic Science',
+    'Networking',
+    'Meet others',
+    'IELTS',
+    'TOEIC',
+    'Le DELF B1/B2 Francais',
+    'THPT Quoc Gia',
+    'Marketing'
+]

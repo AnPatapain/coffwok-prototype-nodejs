@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheet/star.css">
+<link rel="stylesheet" href="/stylesheet/show.css">
+
+<div class="row">
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-7 mt-3 mx-auto">
+                <h4 class="text-center mb-3">Send a card with short message to accept <%= sender.profile.name %>'s
+                    invite
+                </h4>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="<%= receiver.profile.images.thumbnail %>" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h1 class="card-title"><%= receiver.profile.name %>, <%= receiver.profile.age %> <span>
+                                        <h3 style="color: greenyellow; transform: rotateX(20);">Accepted</h3>
+                                    </span> </h1>
+                                <p class="card-text">
+                                    <%= receiver.profile.description %>
+                                </p>
+                                <h5>My Daly Task</h5>
+                                <ul class="list-group list-group-flush">
+                                    <% for (task of sender.profile.dailyTask) { %>
+                                    <li class="list-group-item"><%= task %></li>
+                                    <% } %>
+                                </ul>
+                                <div class="mt-5">
+                                    <form action="/" method="post" novalidate class="needs-validation">
+                                        <label class="form-label" for="invite">Type a short message to accept
+                                            <b><%= sender.profile.name %></b>'s invite</label>
+                                        <textarea class="form-control" type="text" name="message" id="invite"
+                                            required></textarea>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                        <button class="btn btn-outline-success mt-5">Send to
+                                            <%= sender.profile.name %>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

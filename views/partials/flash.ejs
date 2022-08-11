@@ -1,0 +1,17 @@
+<% if (success.length) { %>
+<% for (e of success) { %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= e %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+<% } %>
+
+<% if (errors.length) { %>
+<% for (e of errors) { %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= e %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+<% } %>

@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') %>
+
+
+<div class="row">
+    <h5 class="text-center mb-5"><%= campground.author.username %> </h5>
+    <div class="col-6 mx-auto">
+        <% campground.images.forEach((img, index, images) => { %>
+        <div class="mb-3">
+            <img class="img-thumbnail" src="<%= img.thumbnail %> " alt="">
+            <% if(images.length > 1) {%>
+            <form class="mt-2" action="/campgrounds/<%= campground._id %>/images/<%= img._id %>?_method=DELETE"
+                method="POST">
+                <button class="btn btn-warning">Delete</button>
+            </form>
+            <% } %>
+        </div>
+        <%})%>
+    </div>
+</div>

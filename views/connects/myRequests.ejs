@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+    .message:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="d-flex">
+    <div class="row mx-auto">
+        <div class="col mt-4">
+            <div class="mb-5">
+                <h1 class="text-center">These guys have sent you a coffee invitation</h1>
+                <h4 class="text-center">Click <span style="color: green;">Accept</span> to see their Contact</h4>
+            </div>
+            <% for(let request of receiver.reqConnects) {%>
+
+            <!-- <div data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                aria-controls="collapseExample">
+                Button with data-bs-target
+            </div> -->
+
+            <% if (request.senderID.profile) { %>
+
+            <div class="message row card mb-2" data-bs-toggle="collapse" aria-expanded="false">
+                <div class="col mt-3">
+                    <div class="d-flex">
+                        <img src="<%= request.senderID.profile.images.round %> " alt="" class="me-3">
+                        <h4><%= request.senderID.profile.name %>, <%= request.senderID.profile.age %> </h4>
+                    </div>
+                </div>
+                <div class="col card-body">
+                    <p><%= request.message %> </p>
+                </div>
+            </div>
+
+            <div class="profileDetail card mb-3 mx-auto w-70 collapse">
+                <div class="row">
+                    <div class="col mt-3 mx-auto">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="<%= request.senderID.profile.images.thumbnail %>" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h1 class="card-title"><%= request.senderID.profile.name %>,
+                                        <%= request.senderID.profile.age %>
+                                    </h1>
+                                    <p class="card-text">
+                                        <b>About:</b> <%= request.senderID.profile.description %>
+                                    </p>
+                                    <h5>My Daly Task</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <% for (task of request.senderID.profile.dailyTask) { %>
+                                        <li class="list-group-item"><%= task %></li>
+                                        <% } %>
+                                    </ul>
+                                    <div class="mt-5">
+                                        <h5><%= request.senderID.profile.name %>'s message</h5>
+                                        <p><%= request.message %> </p>
+                                    </div>
+                                    <div class="mt-5">
+                                        <form
+                                            action="/connects/accept/<%= receiver._id %>?senderID=<%= request.senderID._id %> "
+                                            method="post">
+                                            <button class="btn btn-success">Accept</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const messages = document.querySelectorAll('.message')
+    const profiles = document.querySelectorAll('.profileDetail')
+    console.dir(messages)
+    console.dir(profiles)
+    for (let i = 0; i < messages.length; i++) {
+        messages[i].setAttribute('data-bs-target', `#collapse${i}`)
+        profiles[i].setAttribute('aria-controls', `collapse${i}`)
+        profiles[i].setAttribute('id', `collapse${i}`)
+    }
+</script>

@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="mt-5 mb-5">Coffee Shops</h1>
+
+<ul>
+    <% for(let coffeeShop of coffeeShops) { %>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="<%= coffeeShop.images %> " class="img-thumbnail">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title"><%= coffeeShop.title %> </h1>
+                    <p class="card-text"><%= coffeeShop.description %> </p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= coffeeShop.city %> </small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= coffeeShop.address %> </small>
+                    </p>
+                    <a class="btn btn-primary" href="/coffeeShops/<%= coffeeShop._id %> ">View <%= coffeeShop.title %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</ul>

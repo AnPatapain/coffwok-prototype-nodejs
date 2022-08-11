@@ -1,0 +1,19 @@
+main {
+    min-width: 100%;
+    padding: 0px;
+}
+
+.coffeeInfo {
+    position: absolute;
+    margin-top: 300px;
+    color: white;
+}
+
+.coffeeInfo h1 {
+    font-size: 70px;
+}
+
+.coffImg {
+    max-height: 500px;
+    min-width: 500px;
+}

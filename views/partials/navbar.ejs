@@ -1,0 +1,45 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coffwok</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/coffeeShops">Coffee Shops</a>
+                <% if(currentUser && currentUser.profile) {%>
+                <a class="nav-link position-relative" href="/connects/requests/<%= currentUser._id %> ">Messages<span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <% if (currentUser.profile) {%>
+                        <%= currentUser.reqConnects.length %>
+                        <span class="visually-hidden">unread messages</span>
+                        <% } %>
+                    </span></a>
+
+                <a class="nav-link position-relative" href="/connects/networks/<%= currentUser._id %> ">Networks<span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <% if (currentUser.profile) {%>
+                        <%= currentUser.networks.length %>
+                        <span class="visually-hidden">unread messages</span>
+                        <% } %>
+                    </span></a>
+                <% } %>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <% if(!currentUser) { %>
+                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link" href="/login">Log in</a>
+                <% } else {%>
+                <% if(currentUser.profile) {%>
+                <div class="profile d-flex">
+                    <img src="<%= currentUser.profile.images.round %> " alt="">
+                    <a href="/user/<%= currentUser._id %> " class="nav-link"><%= currentUser.profile.name %> </a>
+                </div>
+                <% } %>
+                <a class="nav-link" href="/logout">log out</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
