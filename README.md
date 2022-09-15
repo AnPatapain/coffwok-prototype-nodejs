@@ -6,7 +6,7 @@ I assume that you've had npm (node package manager) on your machine. Using your 
 
 <h3>Project Idea</h3>
 
-Key Idea -> The networking app that allows you to build a network with people in your industry through a meeting at a cafe
+<b>Key Idea</b> -> The networking app that allows you to build a network with people in your industry through a meeting at a cafe
 
 Have you ever wanted to connect or discuss something in your work with people in your industry ? Have you ever heard about <b>Hybrid Work</b> (the type of work that 
 allows you to work onsite or offsite even at your favorite coffee shop).
