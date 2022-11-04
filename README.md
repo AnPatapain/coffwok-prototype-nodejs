@@ -1,4 +1,4 @@
-# coffwok-side_projet - this's just an MVP (first sketch of my idea)
+# coffwok - this's just an MVP (first sketch of my idea)
 
 <h3>Download and run on localhost on your machine</h3>
 
