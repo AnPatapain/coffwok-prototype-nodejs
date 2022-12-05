@@ -30,8 +30,8 @@ const dashBoardRoutes = require('./routes/dashBoard')
 
 const mongoStore = require('connect-mongo')
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Coffwok'
-
+// const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Coffwok'
+const dbUrl = 'mongodb://localhost:27017/Coffwok'
 // mongoose.connect(dbUrl, {
 //     useNewUrlParser: true,
 //     useCreateIndex: true,

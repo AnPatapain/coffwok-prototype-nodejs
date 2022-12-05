@@ -46,7 +46,7 @@ const seeder = async () => {
             city: cities[randomIndex].city + ' ' + cities[randomIndex].state,
             address: 'Avenue Charles de Gaulle',
             images: await seedImage(),
-            description: 'Bonjour, Ambiance tranquille, le bon cafe et tous les merveilleuse personnes occupees !'
+            description: 'Great laptop-friendly coffee shop with fast-speed wifi !'
         })
         await newCoffeeShop.save()
     }
